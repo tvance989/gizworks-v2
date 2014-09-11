@@ -7,7 +7,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
 
-	<title>Node/Angular Order App</title>
+	<title>Gizworks Order Form</title>
 
 	<!-- SCROLLS -->
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
@@ -43,6 +43,7 @@
 				
 
 				<!-- LOOP OVER THE ORDERS IN $scope.orders -->
+<!-- 
 				<table>
 					<tr>
 						<th>Name</th>
@@ -56,6 +57,13 @@
 						<td><input type="checkbox" ng-click="deleteOrder(order._id)"></td>
 					</tr>
 				</table>
+ -->
+				<div ng-repeat="order in orders">
+					<a href="mailto:{{ order.email }}">{{ order.name }} &lt;{{ order.email }}&gt;</a>
+					&nbsp;&nbsp;<input type="button" value="Delete Order" class="btn btn-sm" ng-click="deleteOrder(order._id)">
+					<br>{{ order.description }}
+					<hr>
+				</div>
 
 				<p class="text-center" ng-show="loading">
 					<span class="fa fa-spinner fa-spin fa-3x"></span>
